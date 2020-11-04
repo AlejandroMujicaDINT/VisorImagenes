@@ -6,62 +6,120 @@
         xmlns:local="clr-namespace:VisorImagenes"
         mc:Ignorable="d"
         Title="Visor de imágenes" Height="600" MinHeight="600" Width="700" MinWidth="700" Icon="32.ico">
+    <Window.Resources>
+        <Style TargetType="DockPanel"
+               x:Key="Bottom">
+            <Setter Property="DockPanel.Dock"
+                    Value="Bottom" />
+            <Setter Property="Background"
+                    Value="LightSkyBlue" />
+            <Setter Property="Margin"
+                    Value="10" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="20" />
+            <Setter Property="Padding"
+                    Value="5,15" />
+            <Setter Property="FontFamily"
+                    Value="Rubik" />
+        </Style>
+        <Style TargetType="TextBlock"
+               x:Key="Left"
+               BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="DockPanel.Dock"
+                    Value="Left" />
+        </Style>
+        <Style TargetType="TextBlock"
+               x:Key="Right"
+               BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="TextAlignment"
+                    Value="Right" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="DockPanel.Dock"
+                    Value="Right" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="3" />
+            <Setter Property="CornerRadius"
+                    Value="3" />
+        </Style>
+        <Style TargetType="DockPanel"
+               x:Key="DockRight">
+            <Setter Property="Background"
+                    Value="LightGreen" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="Padding"
+                    Value="5,1" />
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Width"
+                    Value="130" />
+        </Style>
+        <Style TargetType="TextBlock"
+               x:Key="Top"
+               BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="DockPanel.Dock"
+                    Value="Top" />
+            <Setter Property="FontSize"
+                    Value="40" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="10" />
+        </Style>
+        <Style TargetType="WrapPanel">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="10" />
+        </Style>
+        <Style TargetType="StackPanel"
+               x:Key="StackTop">
+            <Setter Property="DockPanel.Dock"
+                    Value="Top" />
+        </Style>
+        <Style TargetType="StackPanel"
+               x:Key="StackBottom">
+            <Setter Property="VerticalAlignment"
+                    Value="Bottom" />
+        </Style>
+    </Window.Resources>
     <DockPanel>
-        <DockPanel DockPanel.Dock="Bottom"
-                   Background="LightSkyBlue"
-                   Margin="10">
-            <StackPanel DockPanel.Dock="Left">
-                <TextBlock FontSize="20"
-                           FontFamily="Rubik"
-                           Padding="5,15">Nº de imágenes: 10</TextBlock>
-            </StackPanel>
-            <StackPanel>
-                <TextBlock TextAlignment="Right" FontSize="20"
-                           FontFamily="Rubik"
-                           Padding="5,15">Diseñado por Alejandro Mújica</TextBlock>
-            </StackPanel>
+        <DockPanel Style="{StaticResource Bottom}">
+            <TextBlock Style="{StaticResource Left}">Nº de imágenes: 10</TextBlock>
+            <TextBlock Style="{StaticResource Right}">Diseñado por Alejandro Mújica</TextBlock>
         </DockPanel>
-        <Border Margin="10" DockPanel.Dock="Right" BorderBrush="Black" BorderThickness="3" CornerRadius="3">
-            <DockPanel Background="LightGreen">
-                <StackPanel DockPanel.Dock="Top">
-                    <Button Margin="5"
-                        Padding="5,1">Añadir imagen</Button>
-                <Button Margin="5"
-                        Padding="5,1">Eliminar imagen</Button>
-                <Button Margin="5"
-                        Padding="5,1">Eliminar todas</Button>
+        <Border>
+            <DockPanel Style="{StaticResource DockRight}">
+                <StackPanel Style="{StaticResource StackTop}">
+                    <Button>Añadir imagen</Button>
+                    <Button>Eliminar imagen</Button>
+                    <Button>Eliminar todas</Button>
                 </StackPanel>
-                <StackPanel VerticalAlignment="Bottom">
-                    <Button Margin="5"
-                            Padding="5,1">Rotar</Button>
-                    <Button Margin="5"
-                            Padding="5,1">Recortar</Button>
+                <StackPanel Style="{StaticResource StackBottom}">
+                    <Button>Rotar</Button>
+                    <Button>Recortar</Button>
                 </StackPanel>
             </DockPanel>
         </Border>
-      
-            <TextBlock DockPanel.Dock="Top"
-                       Margin="10"
-                       FontSize="40"
-                       FontFamily="Rubik"
-                       TextAlignment="Center">Visor de imágenes</TextBlock>
-   
-        <WrapPanel Margin="10">
-            <Image Source="images/episodioIV.jpg" Width="130"></Image>
-            <Image Source="images/episodioIV.jpg"
-                   Width="130"></Image>
-            <Image Source="images/episodioIV.jpg"
-                   Width="130"></Image>
-            <Image Source="images/episodioIV.jpg"
-                   Width="130"></Image>
-            <Image Source="images/episodioIV.jpg"
-                   Width="130"></Image>
-            <Image Source="images/episodioIV.jpg"
-                   Width="130"></Image>
-            <Image Source="images/episodioIV.jpg"
-                   Width="130"></Image>
-            <Image Source="images/episodioIV.jpg"
-                   Width="130"></Image>
+        <TextBlock Style="{StaticResource Top}">Visor de imágenes</TextBlock>
+        <WrapPanel>
+            <Image Source="images/episodioIV.jpg" />
+            <Image Source="images/episodioIV.jpg" />
+            <Image Source="images/episodioIV.jpg" />
+            <Image Source="images/episodioIV.jpg" />
+            <Image Source="images/episodioIV.jpg" />
+            <Image Source="images/episodioIV.jpg" />
+            <Image Source="images/episodioIV.jpg" />
+            <Image Source="images/episodioIV.jpg" />
         </WrapPanel>
     </DockPanel>
 </Window>
